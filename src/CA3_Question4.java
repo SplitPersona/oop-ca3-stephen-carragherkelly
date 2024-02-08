@@ -15,7 +15,7 @@ public class CA3_Question4 {
     {
 
         Scanner scanner = new Scanner(new File(filename));
-        Stack<String> tagStack = new Stack<>();
+        Stack<String> tags = new Stack<>();
 
         while(scanner.hasNext())
         {
@@ -25,9 +25,9 @@ public class CA3_Question4 {
             {
                 if(tag.charAt(1) == '/')
                 {
-                    if(!tagStack.isEmpty() && tagStack.peek().equals(tag.substring(2)))
+                    if(!tags.isEmpty() && tags.peek().equals(tag.substring(2)))
                     {
-                        tagStack.pop();
+                        tags.pop();
                     }
                     else
                     {
@@ -36,12 +36,12 @@ public class CA3_Question4 {
                 }
                 else
                 {
-                    tagStack.push(tag.substring(1, tag.length() - 1));
+                    tags.push(tag.substring(1, tag.length() - 1));
                 }
             }
         }
 
-        return tagStack.isEmpty();
+        return tags.isEmpty();
     }
 
     /*
